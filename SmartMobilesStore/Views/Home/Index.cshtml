@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div ng-controller="ProductController">
+    <section>
+
+        <div class="banner-section">
+            <div class="container " ng-init="getFeaturedProducts()">
+                <div class="row banner-margin">
+                    <div class="col-md-4 col-sm-6 col-xs-12"ng-repeat="prod in getProductList">
+                        <div class="banner-item-1">
+                            <div class="banner-image">
+                                <a href="#"><img src="~/Assests/images/{{prod.SecondImage}}"/></a>
+                            </div>
+                            @*<h3 class="banner-title">
+                                <a href="#">Sony SmartPhone</a>
+                            </h3>*@
+
+                            @*<h3 class="pro-price">869.00$</h3>
+                            <div class=" banner-button">
+                                <a href="#">
+                                    ShopNow
+
+                                </a>
+                            </div>*@
+
+                        </div>
+                    </div>
+                    @*<div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="#"><img src="https://imageprocessor.digital.vistaprint.com/maxWidth/2000/https://uploads.documents.cimpress.io/v1/uploads/549796d2-14ff-4cc8-8795-5c18d24e2d08~110/original?tenant=vbu-digital" /></a>
+
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="#"><img src="https://imageprocessor.digital.vistaprint.com/maxWidth/2000/https://uploads.documents.cimpress.io/v1/uploads/549796d2-14ff-4cc8-8795-5c18d24e2d08~110/original?tenant=vbu-digital" /></a>
+
+                    </div>*@
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Banner section ends-->
+    <!--Feature products starts-->
+    <section>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Wearing a suit helps you leave a great impression on the people you meet at corporate events and social gatherings. However, ill-fitting suits don’t only ruin your style, but also your overall image.</p>
+                    <p>At Apex Tailoring Studio in Tucson, Arizona, we make perfectly fitted bespoke suits that highlight your individuality and style. Contact us today to get a free quote or estimate for our tailoring services.</p>
+                </div>
+                <div class="col-md-4"ng-repeat="prod in singleProductImage">
+                    <div class="banner-item-1">
+                        <div class="banner-image">
+                            <a href="#"><img src="~/Assests/images/{{prod.SecondImage}}" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </section>
+   
+
+
+
+    
+
+</div>

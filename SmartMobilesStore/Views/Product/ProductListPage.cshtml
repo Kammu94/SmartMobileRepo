@@ -1,0 +1,119 @@
+﻿@Model ProductDetailModel
+
+@{
+    ViewBag.Title = "ProductListPage";
+}
+<div ng-controller="ProductController" ng-init="getProductsList()">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-pull-1 col-md-9 col-sm-10 col-xs-10 col-lg-10">
+                <img src="~/Assests/images/prod-grid view.jpg" />
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <!--left side bar-->
+                    <label for="Search">Choose Your Mobile</label>
+                    <input type="text" placeholder="Enter your Text" ng-model="searchMobile" />
+                    <div class="filter-color-heading"><h4>Filter By Color:</h4></div>
+                    <div class="blue-filter-color"><button class="btn btn-primary" ng-click="blueColorFilter()"></button>&nbsp&nbsp<span>Blue</span></div>
+                    <div class="red-filter-color"><button class="btn btn-danger" ng-click="redColorFilter()"></button>&nbsp&nbsp<span>Red</span></div>
+                    <div class="white-filter-color"><button class="btn btn-default" ng-click="whiteColorFilter()"></button>&nbsp&nbsp<span>White</span></div>
+                    <div class="black-filter-color"><button class="btn btn-black" ng-click="blackColorFilter()"></button>&nbsp&nbsp<span>Black</span></div>
+
+                </div>
+                <div class="col-md-9 col-sm-12 col-xs-12">
+                    <div class="sortby-box">
+                        <div class="text-center">
+                            <span>Sort By</span>
+                            <select ng-model="operatingSystemFilter">
+                                <option></option>
+                                <option>Windows</option>
+                                <option>Android</option>
+                                <option>BlackberryOS</option>
+                                <option>IOs</option>
+
+
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="product-list" ng-controller="OrderController">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12 " ng-repeat="prod in getBulkProductList|filter:operatingSystemFilter">
+                                <div class=" product-item">
+                                    <div class="product-img">
+                                        <a href="~/Product/DescriptionPage/{{prod.ProductId}}">
+
+                                            <img ng-src="~/Assests/images/{{prod.SecondImage}}" class="img-responsive" />
+                                        </a>
+
+                                    </div>
+                                    <div class="product-info brand-name">
+                                        <div class="prod-text text-center">
+                                            <a href="~/Product/DescriptionPage/{{prod.ProductId}}">
+                                                <h6 class=" prod-title" ng-bind="prod.ProductName"></h6>
+                                            </a>
+                                        </div>
+                                      </div>
+                                        @*<div class=" prod-rating">
+                                            <div ng-if="prod.Rating==1">
+                                                <i class="fa fa-star star-shine"></i>
+                                                <i class="fa fa-star star-dull"></i>
+                                                <i class="fa fa-star star-dull"></i>
+                                                <i class="fa fa-star star-dull"></i>
+                                                <i class="fa fa-star star-dull"></i>
+
+                                            </div>
+                                            <div ng-if="prod.Rating==2  ">
+                                                <i class="fa fa-star star-shine"></i>
+                                                <i class="fa fa-star star-dull"></i>
+                                                <i class="fa fa-star star-dull"></i>
+                                                <i class="fa fa-star star-dull"></i>
+                                                <i class="fa fa-star star-dull"></i>
+
+                                            </div>
+                                           
+                                         </div>*@
+
+
+                                            <div class=" prod-rating">
+                                                <i class="fa fa-star star-shine"></i>
+                                                <i class="fa fa-star star-shine"></i>
+                                                <i class="fa fa-star star-shine"></i>
+                                                <i class="fa fa-star star-dull"></i>
+                                                <i class="fa fa-star star-dull"></i>
+                                            </div>
+                                            <div class="prod-operatingsytem">
+                                                <a href="~/Product/DescriptionPage/{{prod.ProductId}}"><h6 class="brand-name" ng-bind="prod.OperatingSystem"></h6></a>
+
+                                            </div>
+                                            <div class="prod-price">
+                                                <h3 class="prod-price" ng-bind="prod.SellingPrice"></h3>
+                                                <button class="btn add-to-cart" ng-click="addToCart(prod);getCartDetails()">Shop Now</button>
+                                            </div>
+
+
+
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+</div>
+
+
+            
+
+    
+    
+@**@
